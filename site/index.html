@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+    <head>
+	<meta charset="UTF-8">
+	<style>
+	 * {
+	     box-sizing: border-box;
+	 }
+	 html, body {
+	     font-family: sans-serif;
+	     width: 100%;
+	     height: 100%;
+	     display: flex;
+	     flex-direction: column;
+	     align-items: center;
+	     justify-content: center;
+	 }
+	 div {
+	     border: 1px solid #f1f1f1;
+	     border-radius: .25em;
+	     padding: 1em;
+	     margin: 1em;
+	     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	     width: 300px;
+	 }
+	 input[type=text] {
+	     display: block;
+	     margin-top: 1em;
+	     margin-bottom: 1em;
+	     border: 1px solid #f1f1f1;
+	     border-radius: 2px;
+	     padding: 0.5em;
+	     width: 100%;
+	 }
+	 button {
+	     border-radius: 2px;
+	     background-color: #0daa1a;
+	     color: #ffffff;
+	     padding: 1em;
+	     border: none;
+	     cursor: pointer;
+	     width: 100%;
+	 }
+	 button:hover {
+	     opacity: 0.8;
+	 }
+
+	 img {
+	     width: 100%;
+	 }
+	</style>
+    </head>
+    <body>
+	<div>
+	    <form action="javascript:void(0);" onsubmit="generate()">
+		<input type="text" id="sched" name="sched" placeholder="Mon..Sun *-*-* 00:00:00" oninput="generate()" autofocus />
+		<button type="submit">Parse Schedule</button>
+	    </form>
+	</div>
+	<div id="output">
+	</div>
+	<script type="text/javascript" src="cronic.js"></script>
+	<script type="text/javascript">
+	 function generate() {
+	     var input = document.getElementById("sched").value
+		 updateSchedule(input, document.getElementById("output"))
+	 }
+	</script>
+
+    </body>
+</html>
